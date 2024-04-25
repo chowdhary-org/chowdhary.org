@@ -26,6 +26,8 @@ jobs:
         run: mv src/app/foundation/page.tsx "src/app/(homepage)/page.tsx"
       - name: Move layout
         run: mv src/app/foundation/layout.tsx "src/app/(homepage)/layout.tsx"
+      - name: Move static assets
+        run: cp public/foundation/* public
       - name: Replace brand colors
         run: sed -i -e "s/sky/teal/g" ./tailwind.config.ts
       - name: Detect package manager
