@@ -89,6 +89,9 @@ jobs:
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
 
+      - name: Copy redirects
+        run: test -d redirects && cp -r redirects/* out/ || echo "No redirects directory found"
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
