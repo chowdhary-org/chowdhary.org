@@ -32,6 +32,12 @@ jobs:
       - name: Move layout
         run: mv src/app/foundation/layout.tsx "src/app/(homepage)/layout.tsx"
 
+      - name: Move foundation components to homepage
+        run: mv src/app/foundation/components "src/app/(homepage)/components"
+
+      - name: Update foundation component imports in homepage
+        run: find "src/app/(homepage)" -name "*.tsx" -exec sed -i "s|@/app/foundation/components|@/app/(homepage)/components|g" {} +
+
       - name: Remove foundation project
         run: rm -rf src/app/foundation
 
