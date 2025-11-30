@@ -45,7 +45,7 @@ jobs:
         run: cp public/foundation/* public
 
       - name: Replace brand colors
-        run: sed -i -e "s/teal/sky/g" ./tailwind.config.ts
+        run: sed -i -e "s/sky/teal/g" ./tailwind.config.ts
 
       - name: Detect package manager
         id: detect-package-manager
